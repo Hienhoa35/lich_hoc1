@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trích Xuất Thời Khóa Biểu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BKalendar - Trích Xuất Thời Khóa Biểu 🌹</h1>
+    <p>Hãy Ctrl A rồi Ctrl V thời khóa biểu của bạn vào bên dưới:</p>
+    <textarea id="timetable" placeholder="Dán thời khóa biểu ở đây..."></textarea>
+    <button id="extract">Trích Xuất Lịch</button>
+    
+    <h2>Kết Quả</h2>
+    <div id="output"></div>
+
+    <script>
+        document.getElementById('extract').addEventListener('click', function() {
+            const input = document.getElementById('timetable').value;
+            const output = document.getElementById('output');
+            output.innerHTML = '';
+
+            // Phân tích thời khóa biểu
+            const lines = input.split('\n');
+            lines.forEach(line => {
+                // Giả định rằng thời khóa biểu có định dạng cụ thể
+                if (line.trim()) {
+                    output.innerHTML += `<p>${line.trim()}</p>`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
